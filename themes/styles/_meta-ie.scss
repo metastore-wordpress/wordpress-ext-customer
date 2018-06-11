@@ -1,0 +1,42 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+	.wp-ext-customer {
+		.customer-grid {
+			display: flex;
+			flex-wrap: wrap;
+			.customer {
+				width: 50%;
+				padding: 1rem;
+				.customer-cover {
+					padding-right: 1rem;
+					a {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+				}
+			}
+		}
+	}
+	main {
+		.wp-ext-customer {
+			.customer-grid {
+				.customer-grid {
+					flex-wrap: nowrap;
+				}
+			}
+		}
+	}
+	.widget.wp-ext-customer {
+		.customer-grid {
+			.customer-cover {
+				width: 50%;
+				padding: 1rem;
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}

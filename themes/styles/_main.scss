@@ -1,0 +1,96 @@
+.wp-ext-customer {
+	.customer-grid {
+		display: grid;
+		grid-gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+		.entry-title {
+			font-size: 2rem;
+			text-align: center;
+		}
+	}
+	.customer-cover {
+		margin-bottom: 2rem;
+		a {
+			$bg_color: hsl(0, 0%, 96%);
+			$size: 20rem;
+			display: grid;
+			background: $bg_color no-repeat 50%;
+			background-size: contain;
+			border: .5rem solid $bg_color;
+			border-radius: .4rem;
+			height: $size;
+			i {
+				display: block;
+				color: hsl(0, 0%, 86%);
+				font-size: $size / 2;
+				align-self: center;
+				justify-self: center;
+			}
+		}
+	}
+}
+
+.single.wp-ext-customer {
+	.customer-cover {
+		float: left;
+		margin-right: 2rem;
+		margin-bottom: 0;
+		width: 20rem;
+	}
+}
+
+.widget.wp-ext-customer {
+	.customer-grid {
+		grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+		.customer-cover {
+			margin-bottom: 0;
+			a {
+				$size: 10rem;
+				height: $size;
+				i {
+					font-size: $size / 2;
+				}
+			}
+		}
+	}
+}
+
+main {
+	.wp-ext-customer {
+		margin-bottom: 6rem;
+		h2 {
+			a {
+				color: #333;
+			}
+		}
+		.customer-grid {
+			display: grid;
+			grid-gap: 2rem;
+			grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+			.customer-grid {
+				grid-template-columns: min-content 1fr;
+			}
+		}
+		.customer-title {
+			margin-bottom: 1rem;
+			text-align: left;
+			a {
+				color: #333;
+			}
+		}
+		.customer-cover {
+			margin-bottom: 0;
+			a {
+				$size: 8rem;
+				width: $size;
+				height: $size;
+				i {
+					font-size: $size / 2;
+				}
+			}
+		}
+		.customer-content {
+			font-size: 1.2rem;
+		}
+	}
+}
