@@ -24,10 +24,14 @@
 		"source": "https://gitlab.com/metastore/wordpress/wordpress-ext-customer"
 	},
 	"require": {
-		"php": ">=7.2",
-		"composer/installers": "~1.0",
-		"johnpbloch/wordpress": "*"
+		"composer/installers": "~1.0"
 	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
 	"extra": {
 		"installer-name": "WP_EXT_Customer"
 	}
