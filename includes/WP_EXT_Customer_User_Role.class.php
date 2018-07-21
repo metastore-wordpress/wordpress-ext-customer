@@ -2,22 +2,19 @@
 
 /**
  * Class WP_EXT_Customer_User_Role
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
 
 	/**
 	 * Post type: `capabilities`.
 	 *
 	 * @var array
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	private $cap;
 
 	/**
 	 * Constructor.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function __construct() {
 		parent::__construct();
 
@@ -30,8 +27,7 @@ class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
 
 	/**
 	 * Plugin: `initialize`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function run() {
 		add_action( 'admin_init', [ $this, 'caps_admin' ], 9999 );
 		add_action( 'admin_init', [ $this, 'caps_pt' ], 9999 );
@@ -39,8 +35,7 @@ class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
 
 	/**
 	 * Plugin: `install`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function install() {
 		add_role( $this->cap_type[0], esc_html__( 'PT: Customer', 'wp-ext-' . $this->domain_ID ), [
 			'read'         => true,
@@ -50,8 +45,7 @@ class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
 
 	/**
 	 * Plugin: `uninstall`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function uninstall() {
 		$admin = get_role( 'administrator' );
 
@@ -66,8 +60,7 @@ class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
 
 	/**
 	 * Capabilities: `admin`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function caps_admin() {
 		$admin = get_role( 'administrator' );
 
@@ -78,8 +71,7 @@ class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
 
 	/**
 	 * Capabilities: `cpt`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function caps_pt() {
 		$pt_role = get_role( $this->cap_type[0] );
 
@@ -95,8 +87,7 @@ class WP_EXT_Customer_User_Role extends WP_EXT_Customer {
  * Helper function to retrieve the static object without using globals.
  *
  * @return WP_EXT_Customer_User_Role
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 function WP_EXT_Customer_User_Role() {
 	static $object;
 
@@ -109,18 +100,15 @@ function WP_EXT_Customer_User_Role() {
 
 /**
  * Install plugin.
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 register_activation_hook( plugin_dir_path( __DIR__ ) . 'plugin.php', [ WP_EXT_Customer_User_Role(), 'install' ] );
 
 /**
  * Uninstall plugin.
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 register_deactivation_hook( plugin_dir_path( __DIR__ ) . 'plugin.php', [ WP_EXT_Customer_User_Role(), 'uninstall' ] );
 
 /**
  * Initialize the object on `plugins_loaded`.
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 add_action( 'plugins_loaded', [ WP_EXT_Customer_User_Role(), 'run' ] );

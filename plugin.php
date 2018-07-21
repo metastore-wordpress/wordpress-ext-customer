@@ -19,7 +19,7 @@
 
 /**
  * Loading `WP_EXT_Customer`.
- * ------------------------------------------------------------------------------------------------------------------ */
+ */
 
 function run_wp_ext_customer() {
 	require_once( plugin_dir_path( __FILE__ ) . 'includes/WP_EXT_Customer.class.php' );

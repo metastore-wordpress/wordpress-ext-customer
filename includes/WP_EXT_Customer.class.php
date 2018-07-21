@@ -2,46 +2,40 @@
 
 /**
  * Class WP_EXT_Customer
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 class WP_EXT_Customer {
 
 	/**
 	 * Textdomain used for translation.
 	 *
 	 * @var string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	protected $domain_ID;
 
 	/**
 	 * Post type name.
 	 *
 	 * @var string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	protected $pt_ID;
 
 	/**
 	 * Post type archive name.
 	 *
 	 * @var string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	protected $archive_ID;
 
 	/**
 	 * Post type capability type.
 	 *
 	 * @var string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	protected $cap_type;
 
 	/**
 	 * Constructor.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function __construct() {
 		// Settings.
 		$this->pt_ID      = 'customer';
@@ -58,15 +52,13 @@ class WP_EXT_Customer {
 
 	/**
 	 * Plugin: `initialize`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function run() {
 	}
 
 	/**
 	 * Plugin: `languages`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function languages() {
 		load_plugin_textdomain(
 			'wp-ext-' . $this->domain_ID,
@@ -79,8 +71,7 @@ class WP_EXT_Customer {
 	 * Post type: `capabilities`.
 	 *
 	 * @return array
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function capabilities() {
 		$capabilities = [
 			'edit_post'              => 'edit_' . $this->cap_type[0],
@@ -101,14 +92,14 @@ class WP_EXT_Customer {
 
 		return $capabilities;
 	}
+
 }
 
 /**
  * Helper function to retrieve the static object without using globals.
  *
  * @return WP_EXT_Customer
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 function WP_EXT_Customer() {
 	static $object;
 
@@ -121,6 +112,5 @@ function WP_EXT_Customer() {
 
 /**
  * Initialize the object on `plugins_loaded`.
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 add_action( 'plugins_loaded', [ WP_EXT_Customer(), 'run' ] );
